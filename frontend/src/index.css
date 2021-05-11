@@ -1,5 +1,7 @@
 main {
   min-height: 80vh;
+  background-color: #e7e4e9;
+  font-family: 'Laila', sans-serif;
 }
 
 h3 {
