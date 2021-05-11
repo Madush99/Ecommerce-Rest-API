@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "MERN shopping cart app",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node backend/server"
+    "start": "node backend/server",
+    "server": "nodemon backend/server"
   },
   "repository": {
     "type": "git",
@@ -13,6 +15,14 @@
   "author": "Madusanka,Agasthi,Ushini and Bulner",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "concurrently": "^6.1.0"
   }
 }
