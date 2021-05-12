@@ -1,7 +1,7 @@
 main {
   min-height: 80vh;
   background-color: #e7e4e9;
-  font-family: 'Laila', sans-serif;
+  font-family: 'Baloo 2', cursive;
 }
 
 h3 {
@@ -10,4 +10,8 @@ h3 {
 
 .rating span {
   margin: 0.1rem;
+}
+
+h1{
+  font-family: 'Patrick Hand SC', cursive;
 }
