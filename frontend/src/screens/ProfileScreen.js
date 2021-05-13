@@ -51,7 +51,7 @@ const ProfileScreen = ({ history }) => {
 
       return (<Row>
             <Col md={3}>
-                  <h1>user profile</h1>
+                  <h1>User Profile</h1>
                   {message && <Message variant='danger'>{message}</Message>}
                   {error && <Message variant='danger'>{error}</Message>}
                   {success && <Message variant='success'>Profile Updated</Message>}
@@ -75,7 +75,7 @@ const ProfileScreen = ({ history }) => {
                               <Form.Label>Confirm Password</Form.Label>
                               <Form.Control type='password' placeholder='Confirm password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}></Form.Control>
                         </Form.Group>
-                        <Form.Group>
+                        <Form.Group className='py-4'>
                               <Button type='submit' variant='primary'>
                                     Update
                               </Button>
@@ -83,9 +83,9 @@ const ProfileScreen = ({ history }) => {
                   </Form>
             </Col>
             <Col md={9}>
-                  <h2>My oders</h2>
+                  <h1>My oders</h1>
             </Col>
-      </Row>
+      </Row >
       )
 }
 
