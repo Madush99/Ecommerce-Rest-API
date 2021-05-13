@@ -47,7 +47,7 @@ const ShippingScreen = ({ history }) => {
             <Form.Group className='py-3'>
                 <button type='submit' varient='primary'>
                     Continue
-            </button>
+                </button>
             </Form.Group>
 
         </Form>
