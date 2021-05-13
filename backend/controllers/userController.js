@@ -3,9 +3,11 @@ import generateToken from '../utils/generateToken.js'
 import User from '../models/userModel.js'
 
 
+
 // @desc    Auth user & get token
 // @route   POST /api/ user/ login
 // @access  Public
+
 const authUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body
 
@@ -41,9 +43,9 @@ const registerUser = asyncHandler(async (req, res) => {
     const user = await User.create({
         name,
         email,
-        password
+        password,
     })
-    if (user) {
+    if(user) {
         res.status(201).json({
             _id: user._id,
             name: user.name,
