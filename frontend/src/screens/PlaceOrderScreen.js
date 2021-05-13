@@ -28,6 +28,8 @@ const PlaceOrderScreen = () => {
         Number(cart.taxPrice)
     ).toFixed(2)
 
+    
+
     const placeOrderHandler = () => {
         console.log('order')
       }
