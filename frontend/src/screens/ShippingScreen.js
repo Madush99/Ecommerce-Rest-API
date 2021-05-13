@@ -47,9 +47,9 @@ const ShippingScreen = ({ history }) => {
                 <Form.Control type='text' placeholder='Enter country' value={country} required onChange={(e) => setCountry(e.target.value)}></Form.Control>
             </Form.Group>
             <Form.Group className='py-3'>
-                <button type='submit' varient='primary'>
+                <Button type='submit' varient='primary'>
                     Continue
-                </button>
+                </Button>
             </Form.Group>
 
         </Form>

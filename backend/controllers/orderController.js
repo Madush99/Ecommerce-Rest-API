@@ -1,5 +1,4 @@
 import asyncHandler from 'express-async-handler'
-import { Error } from 'mongoose'
 import Order from '../models/orderModel.js'
 
 // @desc    Create new order
@@ -40,8 +39,10 @@ const addOrderItems = asyncHandler(async (req, res) => {
 
 
 const getOrderById = asyncHandler(async (req, res) => {
-
-  const order = await (await Order.findById(req.params.id)).populated('user', 'name', 'email')
+  const order = await Order.findById(req.params.id).populate(
+    'user',
+    'name email'
+  )
 
   if (order) {
     res.json(order)
@@ -49,7 +50,6 @@ const getOrderById = asyncHandler(async (req, res) => {
     res.status(404)
     throw new Error('Order not found')
   }
-
 })
 
-export { addOrderItems }
+export { addOrderItems, getOrderById }
