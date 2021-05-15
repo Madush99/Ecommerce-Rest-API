@@ -30,6 +30,8 @@ const CartScreen = ({ match, location, history }) => {
   }
 
   return (
+    <>
+    <Link to='/' className='btn btn-light'>Go Back</Link>
     <Row>
       <Col md={8}>
         <h1>Shopping Cart</h1>
@@ -108,6 +110,7 @@ const CartScreen = ({ match, location, history }) => {
         </Card>
       </Col>
     </Row>
+    </>
   )
 }
 
