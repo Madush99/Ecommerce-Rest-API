@@ -16,6 +16,13 @@
 
 .ng {
   position: absolute;
-  left: 450px;
+  left: 480px;
   top: 17px;
+}
+
+.hj {
+  top: 17px;
+  position: absolute;
+  left: 270px;
+  width: 200px;
 }

@@ -19,7 +19,7 @@ export const SearchBox = ({ history }) => {
                 name='q'
                 onChange={(e) => setKeyword(e.target.value)}
                 placeholder='Search Products...'
-                className='me-sm-2 ml-sm-5'>
+                className='me-sm-2 ml-sm-5 hj'>
 
             </Form.Control>
             <Button type='submit' variant='outline-success' className='p-1.5 ng'>Search</Button>
