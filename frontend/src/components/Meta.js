@@ -12,7 +12,7 @@ export const Meta = ({ title, description, keywords}) => {
 }
 
 Meta.defaultProps = {
-    title: 'Welcome to Madush|SPA',
+    title: 'Welcome to Flip|BUMA',
     description: 'We sell the best products for cheap',
     keywords: 'electronics, buy electronics'
 }
