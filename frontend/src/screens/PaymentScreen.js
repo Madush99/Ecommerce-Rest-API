@@ -52,9 +52,11 @@ const PaymentScreen = ({ history }) => {
                 </Col>
             </Form.Group>
 
+            <Form.Group className='py-3'>
             <Button type='submit' varient='primary'>
                 Continue
             </Button>
+            </Form.Group>
         </Form>
     </FormContainer>
 

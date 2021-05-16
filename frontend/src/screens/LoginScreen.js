@@ -43,7 +43,7 @@ const LoginScreen = ({ location, history }) => {
                               <Form.Label>Password</Form.Label>
                               <Form.Control type='password' placeholder='Enter password' value={password} onChange={(e) => setPassword(e.target.value)}></Form.Control>
                         </Form.Group>
-                        <Form.Group className='py-3'>
+                        <Form.Group className='py-2'>
                               <Button type='submit' variant='primary'>
                                     Sign In
                               </Button>
