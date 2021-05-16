@@ -23,11 +23,11 @@ const Header = () => {
                   <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
                         <Container>
                               <LinkContainer to='/'>
-                                    <Navbar.Brand className='font'>Madush's Shop</Navbar.Brand>
+                                    <Navbar.Brand className='font'>Flip BUMA</Navbar.Brand>
                               </LinkContainer>
                               <Navbar.Toggle aria-controls='basic-navbar-nav' />
-                              <Navbar.Collapse id='basic-navbar-nav'>
-                                    <Route render={({ history }) => <SearchBox history={history}/>} />
+                              <Navbar.Collapse id='basic-navbar-nav' >
+                                    <Route render={({ history }) => <SearchBox history={history} />} />
                                     <Nav className='nv font1'>
                                           <LinkContainer to='/cart'>
                                                 <Nav.Link><i className='fas fa-shopping-cart'></i> Cart</Nav.Link>

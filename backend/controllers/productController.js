@@ -11,20 +11,20 @@ const getProducts = asyncHandler(async (req, res) => {
     const page = Number(req.query.pageNumber) || 1
 
     const keyword = req.query.keyword
-    ? {
-        name: {
-          $regex: req.query.keyword,
-          $options: 'i',
-        },
-      }
-    : {}
+        ? {
+            name: {
+                $regex: req.query.keyword,
+                $options: 'i',
+            },
+        }
+        : {}
 
-  const count = await Product.countDocuments({ ...keyword })
-  const products = await Product.find({ ...keyword })
-    .limit(pageSize)
-    .skip(pageSize * (page - 1))
+    const count = await Product.countDocuments({ ...keyword })
+    const products = await Product.find({ ...keyword })
+        .limit(pageSize)
+        .skip(pageSize * (page - 1))
 
-  res.json({ products, page, pages: Math.ceil(count / pageSize) })
+    res.json({ products, page, pages: Math.ceil(count / pageSize) })
 })
 
 
@@ -118,7 +118,7 @@ const createProductReview = asyncHandler(async (req, res) => {
     if (product) {
         const alreadyReviwed = product.reviews.find(r => r.user.toString() === req.user._id.toString())
 
-        if(alreadyReviwed){
+        if (alreadyReviwed) {
             res.status(400)
             throw new Error('Product already reviwed!')
         }
@@ -135,7 +135,7 @@ const createProductReview = asyncHandler(async (req, res) => {
         product.numReviews = product.reviews.length
 
         product.rating = product.reviews.reduce((acc, item) => item.rating + acc, 0) /
-        product.reviews.length
+            product.reviews.length
 
         await product.save()
         res.status(201).json({ message: 'Review added' })
@@ -152,16 +152,16 @@ const createProductReview = asyncHandler(async (req, res) => {
 //@route    GET/api/products/top
 //@access   private
 const getTopProducts = asyncHandler(async (req, res) => {
-    const products = await Product.find({}).sort({ rating: -1 }).limit(3)
+    const products = await Product.find({}).sort({ rating: -1 }).limit(8)
 
     res.json(products)
 })
 
-export { 
-    getProducts, 
-    getProductById, 
-    deleteProduct, 
-    createProduct, 
+export {
+    getProducts,
+    getProductById,
+    deleteProduct,
+    createProduct,
     updateProduct,
     createProductReview,
     getTopProducts,
