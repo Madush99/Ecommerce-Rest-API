@@ -200,6 +200,12 @@ const OrderScreen = ({ match, history }) => {
                                                                   amount={order.totalPrice}
                                                                   onSuccess={successPaymentHandler}
                                                             />
+
+                                                      ) || (
+                                                            <Button
+                                                                  amount={order.totalPrice}
+                                                                  onSuccess={successPaymentHandler}
+                                                            />
                                                       )}
                                                 </ListGroup.Item>
                                           )}
