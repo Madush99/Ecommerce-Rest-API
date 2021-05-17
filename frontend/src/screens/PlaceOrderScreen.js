@@ -68,11 +68,20 @@ const PlaceOrderScreen = ({ history }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
+            <Row>
+              <Col md={4}>
               <h2>Payment Method</h2>
               <strong>Method: </strong>
               {cart.paymentMethod}
+              </Col>
+              <Col md={4}>
+              <h2>Delivery Method</h2>
+              <strong>Method: </strong>
+              {cart.deliveryMethod}
+              </Col>
+              </Row>
             </ListGroup.Item>
-
+          
             <ListGroup.Item>
               <h2>Order Items</h2>
               {cart.cartItems.length === 0 ? (
