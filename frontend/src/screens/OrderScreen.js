@@ -239,7 +239,7 @@ const OrderScreen = ({ match, history }) => {
                                                       <input type="hidden" className="form-control" placeholder="Name" name="tax" value={order.taxPrice} />
                                                       <input type="hidden" className="form-control" placeholder="Name" name="totalPrice" value={order.totalPrice} />
 
-                                                      <Button className='py-2' type='submit'>Send Order Confirmation Email</Button>
+                                                      <Button className='py-2 mj' type='submit'>Send Order Summary</Button>
                                                 </Form>
 
                                           )}
