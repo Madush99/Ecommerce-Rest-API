@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import emailjs from "emailjs-com";
 import { PayPalButton } from 'react-paypal-button-v2'
 import { Link } from 'react-router-dom'
-import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap'
+import { Row, Col, ListGroup, Image, Card, Button, Form, Alert } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -27,6 +28,12 @@ const OrderScreen = ({ match, history }) => {
 
       const userLogin = useSelector((state) => state.userLogin)
       const { userInfo } = userLogin
+
+      // var templateParams = {
+      //       email: order.user.email,
+      // };
+
+
 
 
       if (!loading) {
@@ -78,6 +85,17 @@ const OrderScreen = ({ match, history }) => {
 
       const deliverHandler = () => {
             dispatch(deliverOrder(order))
+      }
+
+      function sendEmail(e) {
+            e.preventDefault();
+
+            emailjs.sendForm('service_3hmhlvx', 'template_j57onor', e.target, 'user_xybrFSQSULyS71kBVHmzl')
+                  .then((result) => {
+                        console.log(result.text);
+                  }, (error) => {
+                        console.log(error.text);
+                  });
       }
 
       return loading ? (
@@ -190,6 +208,7 @@ const OrderScreen = ({ match, history }) => {
                                                       <Col>${order.totalPrice}</Col>
                                                 </Row>
                                           </ListGroup.Item>
+
                                           {!order.isPaid && (
                                                 <ListGroup.Item>
                                                       {loadingPay && <Loader />}
@@ -199,6 +218,7 @@ const OrderScreen = ({ match, history }) => {
                                                             <PayPalButton
                                                                   amount={order.totalPrice}
                                                                   onSuccess={successPaymentHandler}
+
                                                             />
 
                                                       ) || (
@@ -209,6 +229,21 @@ const OrderScreen = ({ match, history }) => {
                                                       )}
                                                 </ListGroup.Item>
                                           )}
+
+                                          {order.isPaid && (
+
+                                                <Form onSubmit={sendEmail} className='py-2' align='center'>
+                                                      <input type="hidden" className="form-control" placeholder="Name" name="email" value={order.user.email} />
+                                                      <input type="hidden" className="form-control" placeholder="Name" name="itemsPrice" value={order.itemsPrice} />
+                                                      <input type="hidden" className="form-control" placeholder="Name" name="shippingPrice" value={order.shippingPrice} />
+                                                      <input type="hidden" className="form-control" placeholder="Name" name="tax" value={order.taxPrice} />
+                                                      <input type="hidden" className="form-control" placeholder="Name" name="totalPrice" value={order.totalPrice} />
+
+                                                      <Button className='py-2' type='submit'>Send Order Confirmation Email</Button>
+                                                </Form>
+
+                                          )}
+
                                           {loadingDeliver && <Loader />}
 
                                           {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
