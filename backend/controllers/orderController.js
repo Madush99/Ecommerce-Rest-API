@@ -38,6 +38,8 @@ const addOrderItems = asyncHandler(async (req, res) => {
 })
 
 
+//Get order details
+
 const getOrderById = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id).populate(
     'user',
@@ -52,7 +54,7 @@ const getOrderById = asyncHandler(async (req, res) => {
   }
 })
 
-
+//Update order details
 const updateOrderToPaid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id)
 
@@ -75,6 +77,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   }
 })
 
+//update order deliver details
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id)
 
@@ -91,6 +94,7 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
   }
 })
 
+//Get user orders 
 const getMyOrders = asyncHandler(async (req, res) => {
   const orders = await Order.find({ user: req.user._id })
   res.json(orders)

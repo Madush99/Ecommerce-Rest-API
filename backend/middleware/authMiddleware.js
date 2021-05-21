@@ -3,7 +3,7 @@ import AsyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
 
 
-const protect = AsyncHandler(async(req, res, next) => {
+const protect = AsyncHandler(async(req, res, next) => { //json web token 
     let token
 
     if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
@@ -27,6 +27,7 @@ const protect = AsyncHandler(async(req, res, next) => {
     }
 })
 
+//check authorization
 const admin = (req, res, next) => {
     if(req.user && req.user.isAdmin){
         next()
