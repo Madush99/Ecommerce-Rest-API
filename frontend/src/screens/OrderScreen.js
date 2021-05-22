@@ -52,7 +52,7 @@ const OrderScreen = ({ match, history }) => {
             if (!userInfo) {
                   history.push('/login')
             }
-
+            //paypal payment gateway
             const addPayPalScript = async () => {
                   const { data: clientId } = await axios.get('/api/config/paypal')
                   const script = document.createElement('script')
@@ -86,6 +86,8 @@ const OrderScreen = ({ match, history }) => {
       const deliverHandler = () => {
             dispatch(deliverOrder(order))
       }
+
+      //email sending function 
 
       function sendEmail(e) {
             e.preventDefault();
@@ -209,6 +211,7 @@ const OrderScreen = ({ match, history }) => {
                                                 </Row>
                                           </ListGroup.Item>
 
+                                          {/* Payment via paypal and credit or debit card */}
                                           {!order.isPaid && (
                                                 <ListGroup.Item>
                                                       {loadingPay && <Loader />}
@@ -229,8 +232,10 @@ const OrderScreen = ({ match, history }) => {
                                                       )}
                                                 </ListGroup.Item>
                                           )}
-
+                                          {/* Sending email to client after payment is done */}
                                           {order.isPaid && (
+
+                                                // Calling the sendEmail function 
 
                                                 <Form onSubmit={sendEmail} className='py-2' align='center'>
                                                       <input type="hidden" className="form-control" placeholder="Name" name="email" value={order.user.email} />
