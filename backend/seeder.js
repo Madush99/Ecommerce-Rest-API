@@ -12,6 +12,7 @@ dotenv.config()
 
 connectDB()
 
+//import sample data to database
 const importData = async () => {
     try{
         await Order.deleteMany()
@@ -36,6 +37,7 @@ const importData = async () => {
     }
 }
 
+//destrom sample data from database
 const destroyData = async () => {
     try{
         await Order.deleteMany()
