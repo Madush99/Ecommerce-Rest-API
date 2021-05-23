@@ -20,7 +20,7 @@ import {
       ORDER_DELIVERED_SUCCESS
 } from '../constants/orderConstants'
 
-
+//creating an order
 export const createOrder = (order) => async (dispatch, getState) => {
       try {
             dispatch({
@@ -55,7 +55,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
       }
 }
 
-
+//retriving order details
 export const getOrderDetails = (id) => async (dispatch, getState) => {
       try {
             dispatch({
@@ -89,6 +89,8 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
       }
 }
 
+
+//payment gateway
 export const payOrder = (orderId, paymentResult) => async (dispatch, getState) => {
       try {
             dispatch({
@@ -123,6 +125,8 @@ export const payOrder = (orderId, paymentResult) => async (dispatch, getState) =
       }
 }
 
+//deliver 
+
 export const deliverOrder = (order) => async (dispatch, getState) => {
       try {
             dispatch({
@@ -156,6 +160,7 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
       }
 }
 
+//listing personal orders
 
 export const listMyOrders = () => async (dispatch, getState) => {
       try {
