@@ -189,25 +189,25 @@ const OrderScreen = ({ match, history }) => {
                                           <ListGroup.Item>
                                                 <Row>
                                                       <Col>Items</Col>
-                                                      <Col>${order.itemsPrice}</Col>
+                                                      <Col>Rs.{order.itemsPrice}</Col>
                                                 </Row>
                                           </ListGroup.Item>
                                           <ListGroup.Item>
                                                 <Row>
                                                       <Col>Shipping</Col>
-                                                      <Col>${order.shippingPrice}</Col>
+                                                      <Col>Rs.{order.shippingPrice}</Col>
                                                 </Row>
                                           </ListGroup.Item>
                                           <ListGroup.Item>
                                                 <Row>
                                                       <Col>Tax</Col>
-                                                      <Col>${order.taxPrice}</Col>
+                                                      <Col>Rs.{order.taxPrice}</Col>
                                                 </Row>
                                           </ListGroup.Item>
                                           <ListGroup.Item>
                                                 <Row>
                                                       <Col>Total</Col>
-                                                      <Col>${order.totalPrice}</Col>
+                                                      <Col>Rs.{order.totalPrice}</Col>
                                                 </Row>
                                           </ListGroup.Item>
 
@@ -218,6 +218,7 @@ const OrderScreen = ({ match, history }) => {
                                                       {!sdkReady ? (
                                                             <Loader />
                                                       ) : (
+
                                                             <PayPalButton
                                                                   amount={order.totalPrice}
                                                                   onSuccess={successPaymentHandler}
@@ -235,6 +236,8 @@ const OrderScreen = ({ match, history }) => {
                                           {/* Sending email to client after payment is done */}
                                           {order.isPaid && (
 
+
+
                                                 // Calling the sendEmail function 
 
                                                 <Form onSubmit={sendEmail} className='py-2' align='center'>
@@ -244,8 +247,13 @@ const OrderScreen = ({ match, history }) => {
                                                       <input type="hidden" className="form-control" placeholder="Name" name="tax" value={order.taxPrice} />
                                                       <input type="hidden" className="form-control" placeholder="Name" name="totalPrice" value={order.totalPrice} />
 
-                                                      <Button className='py-2 mj' type='submit'>Send Order Summary</Button>
+                                                      <Button className='py-2 mj' type='submit' >Send Order Summary</Button>
+
+
+
+
                                                 </Form>
+
 
                                           )}
 

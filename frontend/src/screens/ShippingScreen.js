@@ -23,6 +23,8 @@ const ShippingScreen = ({ history }) => {
         history.push('/payment')
     }
 
+    //shipping details form
+
     return <FormContainer>
         <CheckoutSteps step1 step2 />
         <h1>Shipping</h1>
